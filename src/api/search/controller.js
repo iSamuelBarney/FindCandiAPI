@@ -33,11 +33,7 @@ async function getResults(q, res) {
   }
 
   newResponse.items = newItems;
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+
   return res.status(200).json(newResponse);
 }
 

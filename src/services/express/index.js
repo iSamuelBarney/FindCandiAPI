@@ -19,14 +19,8 @@ export default (apiRoot, routes) => {
       max: 10,
     });
 
-    var corsOptions = {
-      origin: "*",
-      optionsSuccessStatus: 200,
-      methods: "GET",
-    };
-
     app.use(limiter);
-    app.use(cors(corsOptions));
+    app.use(cors());
     app.use(compression());
     app.use(morgan("dev"));
   }

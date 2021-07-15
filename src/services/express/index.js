@@ -19,8 +19,13 @@ export default (apiRoot, routes) => {
       max: 10,
     });
 
+    var corsOptions = {
+      origin: "https://find-candi.vercel.app/",
+      optionsSuccessStatus: 200,
+    };
+
     app.use(limiter);
-    app.use(cors());
+    app.use(cors(corsOptions));
     app.use(compression());
     app.use(morgan("dev"));
   }

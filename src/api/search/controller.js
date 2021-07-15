@@ -34,7 +34,7 @@ async function getResults(q, res) {
 
   newResponse.items = newItems;
 
-  return res.json(newResponse);
+  return res.status(200).json(newResponse);
 }
 
 export function show({ params = {} }, res, next) {

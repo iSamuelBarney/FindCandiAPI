@@ -20,7 +20,13 @@ export default (apiRoot, routes) => {
     });
 
     //app.use(limiter);
-    app.use(cors({ origin: /\.vercel\.com$/ }));
+    app.use(
+      cors({
+        origin: true,
+        methods: "GET",
+        credentials: true,
+      })
+    );
     app.use(compression());
     app.use(morgan("dev"));
   }

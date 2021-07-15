@@ -20,7 +20,7 @@ export default (apiRoot, routes) => {
     });
 
     app.use(limiter);
-    //app.use(cors());
+    app.use(cors());
     app.use(compression());
     app.use(morgan("dev"));
   }

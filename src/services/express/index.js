@@ -7,7 +7,7 @@ import { errorHandler as queryErrorHandler } from "querymen";
 import { errorHandler as bodyErrorHandler } from "bodymen";
 import { env } from "../../config";
 
-//import rateLimit from "express-rate-limit";
+import rateLimit from "express-rate-limit";
 
 export default (apiRoot, routes) => {
   const app = express();
@@ -16,17 +16,17 @@ export default (apiRoot, routes) => {
   if (env === "production" || env === "development") {
     const limiter = rateLimit({
       windowMs: 15 * 60 * 1000,
-      max: 10,
+      max: 70,
     });
 
-    //app.use(limiter);
     app.use(
       cors({
-        origin: true,
+        origin: "*",
         methods: "GET",
         credentials: true,
       })
     );
+    app.use(limiter);
     app.use(compression());
     app.use(morgan("dev"));
   }

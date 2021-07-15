@@ -34,6 +34,8 @@ async function getResults(q, res) {
 
   newResponse.items = newItems;
 
+  
+  res.contentType('application/json');
   return res.status(200).json(newResponse);
 }
 

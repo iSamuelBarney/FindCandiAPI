@@ -12,6 +12,7 @@ import { env } from "../../config";
 export default (apiRoot, routes) => {
   const app = express();
 
+  app.use(cors());
   /* istanbul ignore next */
   if (env === "production" || env === "development") {
     const limiter = rateLimit({
@@ -20,7 +21,7 @@ export default (apiRoot, routes) => {
     });
 
     //app.use(limiter);
-    app.use(cors({ origin: /\.vercel\.com$/ }));
+
     app.use(compression());
     app.use(morgan("dev"));
   }

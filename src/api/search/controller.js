@@ -47,6 +47,8 @@ async function getResults(q, res) {
     "X-Requested-With,content-type"
   );
 
+  res.setHeader("Access-Control-Allow-Credentials", true);
+
   return res.status(200).json(newResponse);
 }
 
